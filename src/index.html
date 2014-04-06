@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <!-- Meta Tags -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <title>TicTacToe</title>
+
+        <!-- Link Tags -->
+        <link rel="icon" href="favicon.ico" sizes="16x16 32x32" />
+
+        <!-- CSS -->
+        <!-- build:css css/tictactoe.min.css -->
+        <link rel="stylesheet" href="css/tictactoe.css" />
+        <!-- endbuild -->
+    </head>
+    <body onload="tictactoe.start()">
+        <div id="borderShadow"></div>
+
+        <div id="notepad"></div>
+
+        <!-- build:js bower_components/phune-gaming-sdk/dist/PG.min.js -->
+        <script type="text/javascript" src="bower_components/phune-gaming-sdk/dist/PG.js"></script>
+        <!-- endbuild -->
+        <!-- build:js js/tictactoe.min.js -->
+        <script type="text/javascript" src="js/gameRules.js"></script>
+        <script type="text/javascript" src="js/tictactoe.js"></script>
+        <!-- endbuild -->
+    </body>
+</html>

@@ -1,0 +1,131 @@
+@font-face {
+    font-family: 'KomikaTitle';
+    src: url('fonts/Komika_display_kaps.ttf') format('truetype');
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+/*    background-image: url('../img/game-background.png');
+    background-image: -webkit-image-set(url('../img/game-background.png') 1x, url('../img/game-background@2x.png') 2x);
+    background-image: image-set(url('../img/game-background.png') 1x, url('../img/game-background@2x.png') 2x);*/
+    background-size: 128px 128px;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.05em;
+    overflow: hidden;
+}
+
+.normalImages {
+    background-image: url('../img/game-background.png');
+}
+
+.retinaImages {
+    background-image: url('../img/game-background@2x.png');
+}
+
+#notepad {
+    height: 100%;
+    margin: 0 4px 0 4px;
+}
+
+#background {
+    width: 100%;
+    height: 542px;
+    /*background-image: url('../img/notepad-stitches.png'),
+        url('../img/notepad-link.png'),
+        url('../img/notepad-link.png'),
+        url('../img/notepad-pages.png'),
+        url('../img/notepad-linkbar.png'),
+        url('../img/notepad-background.png');
+    background-image: -webkit-image-set(url('../img/notepad-stitches.png') 1x, url('../img/notepad-stitches@2x.png') 2x),
+        -webkit-image-set(url('../img/notepad-link.png') 1x, url('../img/notepad-link@2x.png') 2x),
+        -webkit-image-set(url('../img/notepad-link.png') 1x, url('../img/notepad-link@2x.png') 2x),
+        -webkit-image-set(url('../img/notepad-pages.png') 1x, url('../img/notepad-pages@2x.png') 2x),
+        -webkit-image-set(url('../img/notepad-linkbar.png') 1x, url('../img/notepad-linkbar@2x.png') 2x),
+        -webkit-image-set(url('../img/notepad-background.png') 1x, url('../img/notepad-background@2x.png') 2x);
+    background-image: image-set(url('../img/notepad-stitches.png') 1x, url('../img/notepad-stitches@2x.png') 2x),
+        image-set(url('../img/notepad-link.png') 1x, url('../img/notepad-link@2x.png') 2x),
+        image-set(url('../img/notepad-link.png') 1x, url('../img/notepad-link@2x.png') 2x),
+        image-set(url('../img/notepad-pages.png') 1x, url('../img/notepad-pages@2x.png') 2x),
+        image-set(url('../img/notepad-linkbar.png') 1x, url('../img/notepad-linkbar@2x.png') 2x),
+        image-set(url('../img/notepad-background.png') 1x, url('../img/notepad-background@2x.png') 2x);*/
+    background-position: left 74px, 46px top, 244px top, left bottom, left top, left top;
+    background-size: 16px 4px, 18px 18px, 18px 18px, 2px 18px, 2px 10px, 128px 128px;
+    background-repeat: repeat-x, no-repeat, no-repeat, repeat-x, repeat-x, repeat;
+    border: 2px solid #514F4B;
+    border-bottom: none;
+    border-top: none;
+}
+
+.normalImages #background {
+    background-image: url('../img/notepad-stitches.png'),
+        url('../img/notepad-link.png'),
+        url('../img/notepad-link.png'),
+        url('../img/notepad-pages.png'),
+        url('../img/notepad-linkbar.png'),
+        url('../img/notepad-background.png');
+    /*height: 542px;
+    background-position: left 74px, 46px top, 244px top, left bottom, left top, left top;
+    border: 2px solid #514F4B;
+    border-bottom: none;
+    border-top: none;*/
+}
+
+.retinaImages #background {
+    background-image: url('../img/notepad-stitches@2x.png'),
+        url('../img/notepad-link@2x.png'),
+        url('../img/notepad-link@2x.png'),
+        url('../img/notepad-pages@2x.png'),
+        url('../img/notepad-linkbar@2x.png'),
+        url('../img/notepad-background@2x.png');
+    /*height: 1084px;
+    background-position: left 148px, 92px top, 488px top, left bottom, left top, left top;
+    border: 4px solid #514F4B;
+    border-bottom: none;
+    border-top: none;*/
+}
+
+#borderShadow {
+/*    background-image: url('../img/game-foreground-shadow-bottom.png'),
+        url('../img/game-foreground-shadow-left.png'),
+        url('../img/game-foreground-shadow-right.png'),
+        url('../img/game-foreground-shadow-top.png');
+    background-image: -webkit-image-set(url('../img/game-foreground-shadow-bottom.png') 1x, url('../img/game-foreground-shadow-bottom@2x.png') 2x),
+        -webkit-image-set(url('../img/game-foreground-shadow-left.png') 1x, url('../img/game-foreground-shadow-left@2x.png') 2x),
+        -webkit-image-set(url('../img/game-foreground-shadow-right.png') 1x, url('../img/game-foreground-shadow-right@2x.png') 2x),
+        -webkit-image-set(url('../img/game-foreground-shadow-top.png') 1x, url('../img/game-foreground-shadow-top@2x.png') 2x);
+    background-image: image-set(url('../img/game-foreground-shadow-bottom.png') 1x, url('../img/game-foreground-shadow-bottom@2x.png') 2x),
+        image-set(url('../img/game-foreground-shadow-left.png') 1x, url('../img/game-foreground-shadow-left@2x.png') 2x),
+        image-set(url('../img/game-foreground-shadow-right.png') 1x, url('../img/game-foreground-shadow-right@2x.png') 2x),
+        image-set(url('../img/game-foreground-shadow-top.png') 1x, url('../img/game-foreground-shadow-top@2x.png') 2x);*/
+    background-position: left bottom, left top, right top, left top;
+    background-size: 2px 28px, 28px 2px, 28px 2px, 2px 76px;
+    background-repeat: repeat-x, repeat-y, repeat-y, repeat-x;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.normalImages #borderShadow {
+    background-image: url('../img/game-foreground-shadow-bottom.png'),
+        url('../img/game-foreground-shadow-left.png'),
+        url('../img/game-foreground-shadow-right.png'),
+        url('../img/game-foreground-shadow-top.png');
+}
+
+.retinaImages #borderShadow {
+    background-image: url('../img/game-foreground-shadow-bottom@2x.png'),
+        url('../img/game-foreground-shadow-left@2x.png'),
+        url('../img/game-foreground-shadow-right@2x.png'),
+        url('../img/game-foreground-shadow-top@2x.png');
+}
+
+/* http://bricss.net/post/11230266445/css-hack-to-target-opera */
+x:-o-prefocus, #borderShadow {
+    display: none;
+}

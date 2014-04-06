@@ -1,4 +1,61 @@
-pg-tic-tac-toe
-==============
+# Phune Gaming Tic-Tac-Toe
 
-Phune Gaming Tic-Tac-Toe
+A HTML5 implementation of the game Tic-Tac-Toe for [Phune Gaming](http://www.phune.com/).
+
+## Install
+
+This game makes heavy use of [LimeJS](http://www.limejs.com/) HTML5 Game Framework and [Grunt](http://gruntjs.com/) JavaScript Task Runner. To build it you need to have [Git](http://git-scm.com/), [SVN](http://subversion.apache.org/), [Python 2.x](http://www.python.org/) and [Node.js](http://nodejs.org/) installed.
+
+### Install LimeJS and its dependencies
+
+In the root folder of Tic-Tac-Toe create a directory `limejs`:
+
+```
+mkdir limejs
+```
+
+Clone [LimeJS Git repo](https://github.com/digitalfruit/limejs), or download zip package from [https://github.com/digitalfruit/limejs/archive/master.zip](https://github.com/digitalfruit/limejs/archive/master.zip).
+
+Extract the contents to the `limejs` directory you just created.
+
+Setup LimeJS dependencies:
+
+```
+limejs/bin/lime.py init
+```
+
+### Install Node.js dependencies
+
+Setup Node.js modules:
+
+```
+npm install
+```
+
+## Build
+
+This game should be run using the Phune Gaming platform, but can be quickly tested using the command (only the initial screen will be shown, it is not possible to play without the Phune Gaming platform):
+
+```
+grunt serve
+```
+
+Build Tic-Tac-Toe (production-ready version):
+
+```
+grunt build
+```
+
+**Note:** If the error `depstree.MultipleProvideError: Namespace "DemoHost" provided more than once in sources` appears during the build, remove the folder `limejs/box2d/examples` and try again.
+
+There are many other tasks that can be run through Grunt. For the complete list of available tasks run:
+
+```
+grunt --help
+```
+
+## License
+
+Copyright (c) 2014 Present Technologies
+
+Licensed under the MIT license.

@@ -1,0 +1,34 @@
+{
+  "node": true,
+  "browser": true,
+  "bitwise": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "indent": 4,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "single",
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "trailing": true,
+  "-W106": false, // is not in camel case - to be able to override limejs code
+  "globals": {
+    "goog": false,
+    "lime": false,
+
+    "PG": true,
+    "tictactoe": true,
+    "createStateForNewMatch": true,
+    "evaluateMove": true,
+
+    "describe": false,
+    "it": false,
+    "waitsFor": false,
+    "runs": false,
+    "expect": false
+  }
+}
