@@ -4,7 +4,7 @@ A HTML5 implementation of the game Tic-Tac-Toe for [Phune Gaming](http://www.phu
 
 ## Install
 
-This game makes heavy use of [LimeJS](http://www.limejs.com/) HTML5 Game Framework and [Grunt](http://gruntjs.com/) JavaScript Task Runner. To build it you need to have [Git](http://git-scm.com/), [SVN](http://subversion.apache.org/), [Python 2.x](http://www.python.org/) and [Node.js](http://nodejs.org/) installed.
+This game makes heavy use of [LimeJS](http://www.limejs.com/) HTML5 Game Framework and [Grunt](http://gruntjs.com/) JavaScript Task Runner. To build it you need to have [Git](http://git-scm.com/), [SVN](http://subversion.apache.org/), [Python 2.x](http://www.python.org/), [Node.js](http://nodejs.org/) and [Bower](http://bower.io) installed.
 
 ### Install LimeJS and its dependencies
 
@@ -14,9 +14,11 @@ In the root folder of Tic-Tac-Toe create a directory `limejs`:
 mkdir limejs
 ```
 
-Clone [LimeJS Git repo](https://github.com/digitalfruit/limejs), or download zip package from [https://github.com/digitalfruit/limejs/archive/master.zip](https://github.com/digitalfruit/limejs/archive/master.zip).
+Clone [LimeJS Git repo](https://github.com/digitalfruit/limejs) into the `limejs` directory you just created:
 
-Extract the contents to the `limejs` directory you just created.
+```
+git clone https://github.com/digitalfruit/limejs.git limejs
+```
 
 Setup LimeJS dependencies:
 
@@ -30,6 +32,14 @@ Setup Node.js modules:
 
 ```
 npm install
+```
+
+### Install Bower dependencies
+
+Setup Bower packages:
+
+```
+bower install
 ```
 
 ## Build
