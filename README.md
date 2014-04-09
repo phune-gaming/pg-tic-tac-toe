@@ -50,13 +50,13 @@ This game should be run using the Phune Gaming platform, but can be quickly test
 grunt serve
 ```
 
+**Note:** If you got an error during the build, try to remove the folder `limejs/box2d/examples` and try again.
+
 Build Tic-Tac-Toe (production-ready version):
 
 ```
 grunt build
 ```
-
-**Note:** If the error `depstree.MultipleProvideError: Namespace "DemoHost" provided more than once in sources` appears during the build, remove the folder `limejs/box2d/examples` and try again.
 
 There are many other tasks that can be run through Grunt. For the complete list of available tasks run:
 
