@@ -39,7 +39,7 @@ module.exports = function(grunt) {
             }
         },
         clean: {
-            all: ['bin', 'dist', '.tmp']
+            all: ['bin', 'dist/*', '.tmp']
         },
         jshint: {
             options: {
