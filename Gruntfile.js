@@ -242,7 +242,8 @@ module.exports = function(grunt) {
     grunt.registerTask('test', [
         'makeJsOutputDir',
         'closureDepsWriter',
-        'closureBuilder',
+        'closureBuilder:dist',
+        'closureCompiler',
         'karma:coverage'
     ]);
 

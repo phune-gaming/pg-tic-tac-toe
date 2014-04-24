@@ -7,8 +7,8 @@ basePath = '';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
-  'src/bower_components/phune-gaming-sdk/dist/PG.js',
-  'dist/js/tictactoe.js',
+  'dist/js/tictactoe.min.js',
+  'src/js/**/*.js',
   'test/spec/**/*.js'
 ];
 

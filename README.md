@@ -4,7 +4,7 @@ A HTML5 implementation of the game Tic-Tac-Toe for [Phune Gaming](http://www.phu
 
 ## Install
 
-This game makes heavy use of [LimeJS](http://www.limejs.com/) HTML5 Game Framework and [Grunt](http://gruntjs.com/) JavaScript Task Runner. To build it you need to have [Git](http://git-scm.com/), [SVN](http://subversion.apache.org/), [Java](https://www.java.com/), [Python 2.x](http://www.python.org/), [Node.js](http://nodejs.org/) and [Bower](http://bower.io) installed.
+This game makes heavy use of [LimeJS](http://www.limejs.com/) HTML5 Game Framework and [Grunt](http://gruntjs.com/) JavaScript Task Runner. To build it you need to have [Git](http://git-scm.com/), [SVN](http://subversion.apache.org/), [Java](https://www.java.com/), [Python 2.x](http://www.python.org/), [Node.js](http://nodejs.org/), [Bower](http://bower.io) and [PhantomJS](http://phantomjs.org/) installed.
 
 ### Install LimeJS and its dependencies
 
@@ -57,6 +57,8 @@ Build Tic-Tac-Toe (production-ready version):
 ```
 grunt build
 ```
+
+**Note:** PhantomJS does [not support](https://groups.google.com/forum/#!msg/phantomjs/r0hPOmnCUpc/uxusqsl2LNoJ) the `bind` method yet. If during the tests you get the error: `TypeError: 'undefined' is not a function (evaluating 'throwDeprecated.bind(null,"getRelativeQuality")')` remove or comment the last lines of `limejs/lime/src/node.js` where the bind method is used.
 
 There are many other tasks that can be run through Grunt. For the complete list of available tasks run:
 
