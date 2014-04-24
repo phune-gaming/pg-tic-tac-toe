@@ -7,12 +7,13 @@ basePath = '';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
-  'dist/js/tictactoe.min.js',
+  '.tmp/js/lime.js',
+  'src/js/**/*.js',
   'test/spec/**/*.js'
 ];
 
 // list of files to exclude
-exclude = [];
+exclude = ['**/tictactoe-deps.js'];
 
 // test results reporter to use
 // possible values: 'dots', 'progress', 'junit'

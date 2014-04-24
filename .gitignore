@@ -1,6 +1,7 @@
 limejs
 node_modules
 src/bower_components
+coverage
 bin
 dist
 .tmp

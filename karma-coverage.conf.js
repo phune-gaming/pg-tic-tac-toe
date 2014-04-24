@@ -7,10 +7,17 @@ basePath = '';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
-  'dist/js/tictactoe.min.js',
+  '.tmp/js/lime.js',
   'src/js/**/*.js',
   'test/spec/**/*.js'
 ];
+
+// list of files to exclude
+exclude = ['**/tictactoe-deps.js'];
+
+// test results reporter to use
+// possible values: 'dots', 'progress', 'junit'
+reporters = ['coverage'];
 
 preprocessors = {
   'src/js/tictactoe.js': 'coverage',
@@ -23,13 +30,6 @@ coverageReporter = {
   type: 'html',
   dir: 'coverage'
 };
-
-// list of files to exclude
-exclude = [];
-
-// test results reporter to use
-// possible values: 'dots', 'progress', 'junit'
-reporters = ['coverage'];
 
 // web server port
 port = 8080;

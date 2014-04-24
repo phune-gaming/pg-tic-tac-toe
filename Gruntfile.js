@@ -39,7 +39,7 @@ module.exports = function(grunt) {
             }
         },
         clean: {
-            all: ['bin', 'dist/*', '.tmp']
+            all: ['bin', 'coverage', 'dist/*', '.tmp/*']
         },
         jshint: {
             options: {
@@ -106,16 +106,28 @@ module.exports = function(grunt) {
             }
         },
         closureDepsWriter: {
-            options: {
-                closureLibraryPath: 'limejs/closure',
-                root_with_prefix: [
-                    '"src/js/ ../../../../src/js"',
-                    '"limejs/lime/ ../../../lime/"',
-                    '"limejs/closure/ ../../"',
-                    '"limejs/box2d/ ../../../box2d/"'
-                ]
+            test: {
+                options: {
+                    closureLibraryPath: 'limejs/closure',
+                    root_with_prefix: [
+                        '"test/spec/ ../../../../test/spec"',
+                        '"limejs/lime/ ../../../lime/"',
+                        '"limejs/box2d/ ../../../box2d/"',
+                        '"limejs/closure/ ../../"'
+                    ]
+                },
+                dest: 'limejs/closure/closure/goog/deps.js'
             },
             all: {
+                options: {
+                    closureLibraryPath: 'limejs/closure',
+                    root_with_prefix: [
+                        '"src/js/ ../../../../src/js"',
+                        '"limejs/lime/ ../../../lime/"',
+                        '"limejs/box2d/ ../../../box2d/"',
+                        '"limejs/closure/ ../../"'
+                    ]
+                },
                 dest: 'limejs/closure/closure/goog/deps.js'
             }
         },
@@ -124,12 +136,20 @@ module.exports = function(grunt) {
                 closureLibraryPath: 'limejs/closure',
                 inputs: 'src/js/tictactoe.js'
             },
+            test: {
+                options: {
+                    closureLibraryPath: 'limejs/closure',
+                    inputs: 'test/spec/tictactoe-deps.js'
+                },
+                src: ['limejs/closure', 'limejs/box2d', 'limejs/lime', 'test/spec'],
+                dest: '.tmp/js/lime.js'
+            },
             dev: {
-                src: ['limejs/closure', 'limejs/lime', 'limejs/box2d', 'src/js'],
+                src: ['limejs/closure', 'limejs/box2d', 'limejs/lime', 'src/js'],
                 dest: 'dist/js/tictactoe.js'
             },
             dist: {
-                src: ['limejs/closure', 'limejs/lime', 'limejs/box2d', 'src/js'],
+                src: ['limejs/closure', 'limejs/box2d', 'limejs/lime', 'src/js'],
                 dest: '.tmp/js/tictactoe.js'
             }
         },
@@ -199,22 +219,23 @@ module.exports = function(grunt) {
 
     // closureBuilder fails if the destination folder does not exist
     grunt.registerTask('makeJsOutputDir', function (target) {
-        if (target === 'dist') {
+        if (target === 'dist' || target === 'test') {
             grunt.file.mkdir('.tmp/js');
         }
         grunt.file.mkdir('dist/js');
     });
 
     grunt.registerTask('update', [
-        'closureDepsWriter'
+        'closureDepsWriter:all'
     ]);
 
     grunt.registerTask('serve', [
         'clean',
         'jshint',
+        //'csslint', //TODO
         'copy:dev',
         'makeJsOutputDir:dev',
-        'closureDepsWriter',
+        'closureDepsWriter:all',
         'closureBuilder:dev',
         'livereload-start',
         'connect',
@@ -223,9 +244,6 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('build', [
-        'clean',
-        'jshint',
-        //'csslint', //TODO
         'useminPrepare',
         'imagemin',
         'cssmin',
@@ -233,19 +251,24 @@ module.exports = function(grunt) {
         'copy:dist',
         'usemin',
         'makeJsOutputDir:dist',
-        'closureDepsWriter',
+        'closureDepsWriter:all',
         'closureBuilder:dist',
-        'closureCompiler',
-        'karma:unit'
+        'closureCompiler'
     ]);
 
     grunt.registerTask('test', [
-        'makeJsOutputDir',
-        'closureDepsWriter',
-        'closureBuilder:dist',
-        'closureCompiler',
+        'makeJsOutputDir:test',
+        'closureDepsWriter:test',
+        'closureBuilder:test',
+        'karma:unit'
+    ]);
+
+    grunt.registerTask('coverage', [
+        'makeJsOutputDir:test',
+        'closureDepsWriter:test',
+        'closureBuilder:test',
         'karma:coverage'
     ]);
 
-    grunt.registerTask('default', ['build']);
+    grunt.registerTask('default', ['clean', 'jshint', /* 'csslint', */ 'test', 'build']);
 };

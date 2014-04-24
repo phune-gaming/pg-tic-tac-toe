@@ -58,7 +58,7 @@ Build Tic-Tac-Toe (production-ready version):
 grunt build
 ```
 
-**Note:** PhantomJS does [not support](https://groups.google.com/forum/#!msg/phantomjs/r0hPOmnCUpc/uxusqsl2LNoJ) the `bind` method yet. If during the tests you get the error: `TypeError: 'undefined' is not a function (evaluating 'throwDeprecated.bind(null,"getRelativeQuality")')` remove or comment the last lines of `limejs/lime/src/node.js` where the bind method is used.
+**Note:** [PhantomJS does not support the `bind` method](https://groups.google.com/forum/#!msg/phantomjs/r0hPOmnCUpc/uxusqsl2LNoJ). If you get the following error during the tests: `TypeError: 'undefined' is not a function (evaluating 'throwDeprecated.bind(null,"getRelativeQuality")')`, remove or comment the last lines of `limejs/lime/src/node.js` where the bind method is used.
 
 There are many other tasks that can be run through Grunt. For the complete list of available tasks run:
 
