@@ -26,7 +26,7 @@ tictactoe.GameController = function(gameView) {
         } else {
             gameView.doMove(true, e.posX, e.posY);
 
-            PG.move({
+            PG.sendMove({
                 className: 'Move',
                 posX: e.posX,
                 posY: e.posY

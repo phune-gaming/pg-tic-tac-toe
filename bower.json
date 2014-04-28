@@ -27,7 +27,7 @@
     "README.md"
   ],
   "dependencies": {
-    "phune-gaming-sdk": "~0.0.1"
+    "phune-gaming-sdk": "~0.1.0"
   },
   "devDependencies": {}
 }
