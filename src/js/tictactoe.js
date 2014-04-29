@@ -67,5 +67,4 @@ tictactoe.start = function() {
     tictactoe.gameController = new tictactoe.GameController(tictactoe.gameView);
 };
 
-window.addEventListener('load', tictactoe.start, false);
-// goog.exportSymbol('tictactoe.start', tictactoe.start);
+goog.events.listen(window, goog.events.EventType.LOAD, tictactoe.start);

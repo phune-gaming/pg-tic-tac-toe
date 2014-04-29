@@ -162,6 +162,7 @@ tictactoe.GameView = function() {
         .setPosition(156, 554)
         .setFill('img/notepad-pages-shadow' + tictactoe.configs.retinaPrefix + '.png'));
 };
+
 goog.inherits(tictactoe.GameView, lime.Scene);
 
 tictactoe.GameView.prototype.handleClick = function(posX, posY) {
