@@ -1,6 +1,7 @@
 {
   "node": true,
   "browser": true,
+  "esnext": true,
   "bitwise": true,
   "camelcase": true,
   "curly": true,
@@ -20,10 +21,10 @@
     "goog": false,
     "lime": false,
 
-    "PG": true,
-    "tictactoe": true,
-    "createStateForNewMatch": true,
-    "evaluateMove": true,
+    "PG": false,
+    "tictactoe": false,
+    "createStateForNewMatch": false,
+    "evaluateMove": false,
 
     "describe": false,
     "it": false,

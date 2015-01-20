@@ -1,7 +1,7 @@
 {
-  "name": "tic-tac-toe",
-  "description": "Tic-tac-toe game for Phune Gaming",
-  "version": "0.0.1",
+  "name": "tic-tac-pho",
+  "description": "Multiplayer Tic Tac Pho",
+  "version": "0.8.1-SNAPSHOT",
   "homepage": "https://github.com/phune-gaming/tic-tac-toe",
   "author": {
     "name": "Present Technologies",
@@ -16,13 +16,13 @@
     "url": "https://github.com/phune-gaming/tic-tac-toe/issues"
   },
   "keywords": [
-    "tictactoe",
     "phune",
-    "gaming"
+    "gaming",
+    "tictactoe"
   ],
   "dependencies": {},
   "devDependencies": {
-    "grunt": "~0.4.1",
+    "grunt": "~0.4.0",
     "grunt-closure-tools": "~0.9.0",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-compress": "~0.7.0",
@@ -39,6 +39,7 @@
     "grunt-open": "~0.2.0",
     "grunt-regarde": "~0.1.0",
     "grunt-usemin": "~0.1.0",
+    "jshint-stylish": "~0.4.0",
     "matchdep": "~0.3.0"
   }
 }

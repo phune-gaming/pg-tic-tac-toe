@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
     <head>
         <!-- Meta Tags -->
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <title>TicTacToe</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+        <title>Tic Tac Pho</title>
 
         <!-- Link Tags -->
-        <link rel="icon" href="favicon.ico" sizes="16x16 32x32" />
+        <!-- Standard favicon.ico -->
+        <link rel="icon" href="favicon.ico" sizes="16x16 24x24 32x32 64x64" />
 
         <!-- CSS -->
         <!-- build:css css/tictactoe.min.css -->
@@ -16,14 +19,14 @@
     </head>
     <body>
         <div id="borderShadow"></div>
-
         <div id="notepad"></div>
 
         <!-- build:js bower_components/phune-gaming-sdk/dist/PG.min.js -->
         <script type="text/javascript" src="bower_components/phune-gaming-sdk/dist/PG.js"></script>
         <!-- endbuild -->
+
         <!-- build:js js/tictactoe.min.js -->
-        <script type="text/javascript" src="js/gameRules.js"></script>
+        <script type="text/javascript" src="js/gamerules.js"></script>
         <script type="text/javascript" src="js/tictactoe.js"></script>
         <!-- endbuild -->
     </body>

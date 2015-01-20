@@ -22,7 +22,7 @@ module.exports = function(grunt) {
                     port: 9000,
                     hostname: 'localhost', // Change this to '0.0.0.0' to access the server from outside.
                     middleware: function(connect, options) {
-                        return [lrSnippet, mountFolder(connect, options.base[0])];
+                        return [lrSnippet, mountFolder(connect, options.base)];
                     }
                 }
             }
@@ -43,7 +43,8 @@ module.exports = function(grunt) {
         },
         jshint: {
             options: {
-                jshintrc: '.jshintrc'
+                jshintrc: '.jshintrc',
+                reporter: require('jshint-stylish')
             },
             all: [
                 'src/js/{,*/}*.js',
@@ -87,7 +88,7 @@ module.exports = function(grunt) {
         },
         usemin: {
             html: ['dist/index.html'],
-            css: ['dist/css/tictactoe.css', 'dist/css/tictactoe.min.css'],
+            css: ['dist/css/{,*/}*.css'],
             options: {
                 dirs: ['dist']
             }
@@ -162,7 +163,7 @@ module.exports = function(grunt) {
                 }
             },
             all: {
-                src: ['src/js/gameRules.js', '.tmp/js/tictactoe.js'],
+                src: ['src/js/gamerules.js', '.tmp/js/tictactoe.js'],
                 dest: 'dist/js/tictactoe.min.js'
             }
         },
@@ -177,7 +178,7 @@ module.exports = function(grunt) {
         compress: {
             zip: {
                 options: {
-                    archive: 'bin/tictactoe-<%= pkg.version %>.zip'
+                    archive: 'bin/<%= pkg.name %>-<%= pkg.version %>.zip'
                 },
                 files: [{
                     expand: true,
@@ -197,7 +198,7 @@ module.exports = function(grunt) {
                         'bower_components/**',
                         'css/**',
                         'img/**',
-                        'js/gameRules.js'
+                        'js/gamerules.js'
                     ]
                 }]
             },
@@ -209,7 +210,7 @@ module.exports = function(grunt) {
                     dest: 'dist',
                     src: [
                         '*.ico',
-                        'css/fonts/**',
+                        'css/fonts/{,*/}*.{svg,woff,ttf}',
                         'bower_components/**'
                     ]
                 }]

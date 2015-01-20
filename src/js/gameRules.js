@@ -1,4 +1,4 @@
-/*exported createStateForNewMatch, evaluateMove, createBotMove, getNextMoveId, getNextPlayerId */
+/* exported createStateForNewMatch, evaluateMove, createBotMove, getNextMoveId, getNextPlayerId */
 
 /*****************************************************/
 /* Functions used for both the client and the server */

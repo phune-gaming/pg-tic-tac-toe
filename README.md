@@ -1,6 +1,6 @@
-# Phune Gaming Tic-Tac-Toe
+# Phune Gaming Tic Tac Toe
 
-A HTML5 implementation of the game Tic-Tac-Toe for [Phune Gaming](http://www.phune.com/).
+A HTML5 implementation of the game Tic Tac Toe for [Phune Gaming](http://www.phune.com/).
 
 ## Install
 
@@ -8,7 +8,7 @@ This game makes heavy use of [LimeJS](http://www.limejs.com/) HTML5 Game Framewo
 
 ### Install LimeJS and its dependencies
 
-In the root folder of Tic-Tac-Toe create a directory `limejs`:
+In the root folder of Tic Tac Toe create a directory `limejs`:
 
 ```
 mkdir limejs
@@ -52,7 +52,7 @@ grunt serve
 
 **Note:** If you got an error during the build, try to remove the folder `limejs/box2d/examples` and try again.
 
-Build Tic-Tac-Toe (production-ready version):
+Build (production-ready version):
 
 ```
 grunt build

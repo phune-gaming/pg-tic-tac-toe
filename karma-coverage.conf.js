@@ -21,9 +21,9 @@ reporters = ['coverage'];
 
 preprocessors = {
   'src/js/tictactoe.js': 'coverage',
-  'src/js/gameView.js': 'coverage',
-  'src/js/gameController.js': 'coverage',
-  'src/js/gameRules.js': 'coverage'
+  'src/js/gameview.js': 'coverage',
+  'src/js/gamecontroller.js': 'coverage',
+  'src/js/gamerules.js': 'coverage'
 };
 
 coverageReporter = {
