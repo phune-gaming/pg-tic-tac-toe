@@ -1,3 +1,4 @@
+/* global PG:true */
 PG = {
     init: function(params) {
         'use strict';
@@ -23,7 +24,7 @@ PG = {
     showMenu: function() {
         'use strict';
         this.calledShowMenu = true;
-    },
+    }
 };
 
 describe('Rendering Engine', function() {

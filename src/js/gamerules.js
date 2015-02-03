@@ -1,4 +1,6 @@
 /* exported createStateForNewMatch, evaluateMove, createBotMove, getNextMoveId, getNextPlayerId */
+/* global createStateForNewMatch:true, validate:true, verifyBoard:true, evaluateMove:true, minimax:true,
+ createBotMove:true, getNextMoveId:true, getNextPlayerId:true */
 
 /*****************************************************/
 /* Functions used for both the client and the server */
