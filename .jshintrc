@@ -21,10 +21,10 @@
     "goog": false,
     "lime": false,
 
-    "PG": false,
+    "PG": true,
     "tictactoe": false,
-    "createStateForNewMatch": false,
-    "evaluateMove": false,
+    "createStateForNewMatch": true,
+    "evaluateMove": true,
 
     "describe": false,
     "it": false,
