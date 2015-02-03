@@ -22,7 +22,7 @@ module.exports = function(grunt) {
                     port: 9000,
                     hostname: 'localhost', // Change this to '0.0.0.0' to access the server from outside.
                     middleware: function(connect, options) {
-                        return [lrSnippet, mountFolder(connect, options.base)];
+                        return [lrSnippet, mountFolder(connect, options.base[0])];
                     }
                 }
             }
