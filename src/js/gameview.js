@@ -386,7 +386,7 @@ tictactoe.GameView.prototype.endGame = function(currentPlayer, endCondition) {
         case 3:
         case 4:
         case 5:
-            this.victoryline.setAnchorPoint(0, 0.5).setPosition(33, 188 + 90 * (endCondition - 3));
+            this.victoryline.setAnchorPoint(0, 0.5).setPosition(33, 184 + 90 * (endCondition - 3));
             pieces = [
                 this.gameboard.gamePosition[0][endCondition - 3].piece,
                 this.gameboard.gamePosition[1][endCondition - 3].piece,
