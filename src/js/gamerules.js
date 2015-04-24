@@ -98,7 +98,7 @@ var evaluateMove = function(state, playerId, moveId, content) {
         } else {
             return {
                 result: 'winner',
-                winnerPlayerId: state.nextPlayerId,
+                winnerPlayerId: playerId,
                 evaluationContent: moveResult,
                 state: JSON.stringify(state)
             };
