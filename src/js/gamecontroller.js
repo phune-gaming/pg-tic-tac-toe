@@ -96,10 +96,10 @@ tictactoe.GameController = function(gameView) {
                 case 'right':
                 case 'up':
                 case 'down':
-                    gameView.moveShadow(key);
+                    gameView.moveCursor(key);
                     break;
                 case 'enter':
-                    gameView.handleClick(gameView.shadowPos[0], gameView.shadowPos[1]);
+                    gameView.handleClick(gameView.cursorPos[0], gameView.cursorPos[1]);
                     break;
                 }
             }

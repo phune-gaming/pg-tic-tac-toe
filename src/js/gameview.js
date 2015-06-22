@@ -256,27 +256,31 @@ tictactoe.GameView.prototype.prepareGame = function(player, opponent, deviceType
     this.rightPlayerProgress.setFill(canvas.toDataURL());
 
     if (deviceType === 'TV') {
-        this.shadowPos = [1, 1];
+        this.cursorPos = [1, 1];
 
-        if (this.useFirstSymbol) {
-            this.shadow = new lime.Layer().setAnchorPoint(0.5, 0.5).setHidden(true);
-            var children1 = this.buildRoundedLine(55, 12, '#6F6F6F').setRotation(45),
-                children2 = this.buildRoundedLine(55, 12, '#6F6F6F').setRotation(-45);
-            this.shadow.setColor = function(color) {
-                children1.setFill(color);
-                children2.setFill(color);
-                return this;
-            };
-            this.shadow.appendChild(children1);
-            this.shadow.appendChild(children2);
-        } else {
-            this.shadow = new lime.Circle().setSize(55 / 1.15, 55 / 1.15).setStroke(10, '#6F6F6F').setHidden(true);
-            this.shadow.setColor = function(fill) {
-                return this.setStroke(10, fill);
-            };
+        this.cursor = new lime.Layer().setAnchorPoint(0.5, 0.5).setHidden(true);
+        var cursorElements = [];
+        cursorElements.push(new lime.Sprite().setSize(7, 25).setPosition(-36.5, -26.5));
+        cursorElements.push(new lime.Sprite().setSize(7, 25).setPosition(36.5, -26.5));
+        cursorElements.push(new lime.Sprite().setSize(7, 25).setPosition(-36.5, 26.5));
+        cursorElements.push(new lime.Sprite().setSize(7, 25).setPosition(36.5, 26.5));
+        cursorElements.push(new lime.Sprite().setSize(25, 7).setPosition(-26.5, -36.5));
+        cursorElements.push(new lime.Sprite().setSize(25, 7).setPosition(26.5, -36.5));
+        cursorElements.push(new lime.Sprite().setSize(25, 7).setPosition(-26.5, 36.5));
+        cursorElements.push(new lime.Sprite().setSize(25, 7).setPosition(26.5, 36.5));
+
+        this.cursor.setColor = function(color) {
+            for (var i = cursorElements.length - 1; i >= 0; i--) {
+                cursorElements[i].setFill(color);
+            }
+            return this;
+        };
+
+        for (var i = cursorElements.length - 1; i >= 0; i--) {
+            this.cursor.appendChild(cursorElements[i]);
         }
 
-        this.appendChild(this.shadow);
+        this.appendChild(this.cursor);
     } else {
         this.menuButton = new lime.Button(
             new lime.Sprite().setFill('img/game-button-options-0' + tictactoe.configs.retinaPrefix + '.png').setSize(65, 47).setAnchorPoint(0, 0),
@@ -339,8 +343,8 @@ tictactoe.GameView.prototype.doMove = function(currentPlayer, posX, posY) {
 
     this.gameboard.gamePosition[posX][posY].appendChild(piece);
 
-    if (typeof this.shadow !== 'undefined') {
-        this.shadow.setHidden(true);
+    if (typeof this.cursor !== 'undefined') {
+        this.cursor.setHidden(true);
     }
 };
 
@@ -506,9 +510,9 @@ tictactoe.GameView.prototype.switchPlayer = function(currentPlayer, optTime) {
         }
     }, 1000);
 
-    if (currentPlayer && typeof this.shadow !== 'undefined') {
-        this.moveShadow();
-        this.shadow.setHidden(false);
+    if (currentPlayer && typeof this.cursor !== 'undefined') {
+        this.moveCursor();
+        this.cursor.setHidden(false);
     }
 };
 
@@ -540,36 +544,36 @@ tictactoe.GameView.prototype.fadePlayerIndicators = function(currentPlayer, show
     timerAnim.play();
 };
 
-tictactoe.GameView.prototype.moveShadow = function(direction) {
+tictactoe.GameView.prototype.moveCursor = function(direction) {
     'use strict';
     switch (direction) {
     case 'left':
-        if (this.shadowPos[0] > 0) {
-            this.shadowPos[0]--;
+        if (this.cursorPos[0] > 0) {
+            this.cursorPos[0]--;
         }
         break;
     case 'right':
-        if (this.shadowPos[0] < 2) {
-            this.shadowPos[0]++;
+        if (this.cursorPos[0] < 2) {
+            this.cursorPos[0]++;
         }
         break;
     case 'up':
-        if (this.shadowPos[1] > 0) {
-            this.shadowPos[1]--;
+        if (this.cursorPos[1] > 0) {
+            this.cursorPos[1]--;
         }
         break;
     case 'down':
-        if (this.shadowPos[1] < 2) {
-            this.shadowPos[1]++;
+        if (this.cursorPos[1] < 2) {
+            this.cursorPos[1]++;
         }
         break;
     }
 
-    if (typeof this.gameboard.gamePosition[this.shadowPos[0]][this.shadowPos[1]].piece === 'undefined') {
-        this.shadow.setColor('#009e33');
+    if (typeof this.gameboard.gamePosition[this.cursorPos[0]][this.cursorPos[1]].piece === 'undefined') {
+        this.cursor.setColor('#52504C');
     } else {
-        this.shadow.setColor('#ff5e59');
+        this.cursor.setColor('#FF5638');
     }
 
-    this.shadow.setPosition(64 + this.shadowPos[0] * 90, 184 + this.shadowPos[1] * 90);
+    this.cursor.setPosition(64 + this.cursorPos[0] * 90, 184 + this.cursorPos[1] * 90);
 };
