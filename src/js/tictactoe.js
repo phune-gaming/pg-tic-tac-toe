@@ -11,7 +11,6 @@ tictactoe.configs = {
     showFPS: false,
     width: 312,
     height: 568,
-    noRedirect: true,
     allwaysUseSameSymbol: false
 };
 
@@ -37,10 +36,6 @@ if ((window.devicePixelRatio && window.devicePixelRatio > 1) || window.innerWidt
 
 tictactoe.start = function() {
     'use strict';
-    if((!window.frameElement || window.frameElement.id !== 'game') && !tictactoe.configs.noRedirect) {
-        window.location.replace(window.location.origin + '/#/games/1');
-        return;
-    }
 
     // load font
     lime.Label.defaultFont = 'KomikaTitle';
