@@ -31,7 +31,6 @@ describe('Rendering Engine', function() {
 
     it('should be able to render in Canvas', function() {
         runs(function() {
-            tictactoe.configs.noRedirect = true;
             tictactoe.configs.useCanvas = true;
 
             var notepad = document.createElement('div');
