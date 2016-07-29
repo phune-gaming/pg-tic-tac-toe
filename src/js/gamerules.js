@@ -62,9 +62,27 @@ var verifyBoard = function(board) {
     return 8; // board is full
 };
 
+var getVictoryType = function(result) {
+    'use strict';
+
+    switch (result) {
+    case 0:
+    case 1:
+    case 2:
+        return 'vertical';
+    case 3:
+    case 4:
+    case 5:
+        return 'horizontal';
+    case 6:
+    case 7:
+        return 'diagonal';
+    }
+};
+
 var evaluateMove = function(state, playerId, moveId, content) {
     'use strict';
-    var validationResult, moveResult;
+    var validationResult, moveResult, evaluationResult;
 
     validationResult = validate(state, playerId, moveId, content);
     if (validationResult !== null) {
@@ -100,14 +118,31 @@ var evaluateMove = function(state, playerId, moveId, content) {
                 result: 'winner',
                 winnerPlayerId: playerId,
                 evaluationContent: moveResult,
+                triggeredEvents: [{
+                    playerId: playerId,
+                    type: 'TICTACTOE_WIN',
+                    data: JSON.stringify({
+                        victoryType: getVictoryType(moveResult)
+                    })
+                }],
                 state: JSON.stringify(state)
             };
         }
     } else {
-        return {
+        evaluationResult = {
             result: 'valid',
             state: JSON.stringify(state)
         };
+
+        if (moveId === 1 && content.posX === 1 && content.posY === 1) {
+            evaluationResult.triggeredEvents = [{
+                playerId: playerId,
+                type: 'BULLSEYE',
+                data: JSON.stringify({})
+            }];
+        }
+
+        return evaluationResult;
     }
 };
 
