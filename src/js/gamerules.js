@@ -82,15 +82,18 @@ var getVictoryType = function(result) {
 
 var evaluateMove = function(state, playerId, moveId, content) {
     'use strict';
+
     var validationResult, moveResult, evaluationResult;
 
     validationResult = validate(state, playerId, moveId, content);
     if (validationResult !== null) {
-        return {
+        evaluationResult = {
             result: 'invalid',
             evaluationContent: validationResult,
             state: JSON.stringify(state)
         };
+
+        return evaluationResult;
     }
 
     state.board[content.posX][content.posY] = playerId;
@@ -107,26 +110,33 @@ var evaluateMove = function(state, playerId, moveId, content) {
         state.running = false;
 
         if (moveResult === 8) {
-            return {
+            evaluationResult = {
                 result: 'draw',
                 winnerPlayerId: 0,
                 evaluationContent: moveResult,
                 state: JSON.stringify(state)
             };
+
+            return evaluationResult;
         } else {
-            return {
+            evaluationResult = {
                 result: 'winner',
                 winnerPlayerId: playerId,
                 evaluationContent: moveResult,
-                triggeredEvents: [{
+                state: JSON.stringify(state)
+            };
+
+            if (!content.isBot) {
+                evaluationResult.triggeredEvents = [{
                     playerId: playerId,
                     type: 'TICTACTOE_WIN',
                     data: JSON.stringify({
                         victoryType: getVictoryType(moveResult)
                     })
-                }],
-                state: JSON.stringify(state)
-            };
+                }];
+            }
+
+            return evaluationResult;
         }
     } else {
         evaluationResult = {
@@ -134,7 +144,7 @@ var evaluateMove = function(state, playerId, moveId, content) {
             state: JSON.stringify(state)
         };
 
-        if (moveId === 1 && content.posX === 1 && content.posY === 1) {
+        if (!content.isBot && moveId === 1 && content.posX === 1 && content.posY === 1) {
             evaluationResult.triggeredEvents = [{
                 playerId: playerId,
                 type: 'BULLSEYE',
@@ -212,7 +222,8 @@ var createBotMove = function(state, playerId) {
         content: JSON.stringify({
             className: 'Move',
             posX: posX,
-            posY: posY
+            posY: posY,
+            isBot: true
         })
     };
 };
