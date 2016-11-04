@@ -1,33 +1,8 @@
 {
   "name": "tic-tac-toe",
-  "version": "0.0.1",
-  "authors": [
-    "Present Technologies <phunegaming@present-technologies.com>"
-  ],
-  "description": "Tic-tac-toe game for Phune Gaming",
-  "keywords": [
-    "tictactoe",
-    "phune",
-    "gaming"
-  ],
-  "license": "MIT",
-  "homepage": "https://github.com/phune-gaming/tic-tac-toe",
-  "ignore": [
-    "src",
-    "test",
-    ".bowerrc",
-    ".editorconfig",
-    ".gitignore",
-    ".jshintrc",
-    "bower.json",
-    "Gruntfile.js",
-    "karma.conf.js",
-    "karma-coverage.conf.js",
-    "package.json",
-    "README.md"
-  ],
+  "private": true,
   "dependencies": {
-    "phune-gaming-sdk": "~0.1.0"
+    "phune-gaming-sdk": "~0.1.4"
   },
   "devDependencies": {}
 }

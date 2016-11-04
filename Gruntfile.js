@@ -245,9 +245,9 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('build', [
-        'useminPrepare',
         'imagemin',
         'cssmin',
+        'useminPrepare',
         'htmlmin',
         'copy:dist',
         'usemin',

@@ -1,16 +1,13 @@
 {
   "name": "tic-tac-pho",
   "description": "Multiplayer Tic Tac Pho",
-  "version": "0.8.1-SNAPSHOT",
-  "homepage": "https://github.com/phune-gaming/tic-tac-toe",
+  "version": "1.0.0-SNAPSHOT",
+  "private": true,
+  "homepage": "http://phune.com",
   "author": {
     "name": "Present Technologies",
-    "email": "phunegaming@present-technologies.com",
+    "email": "phune@present-technologies.com",
     "url": "http://www.present-technologies.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/phune-gaming/tic-tac-toe"
   },
   "bugs": {
     "url": "https://github.com/phune-gaming/tic-tac-toe/issues"
@@ -24,22 +21,22 @@
   "devDependencies": {
     "grunt": "~0.4.0",
     "grunt-closure-tools": "~0.9.0",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-compress": "~0.7.0",
-    "grunt-contrib-connect": "~0.7.0",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-csslint": "~0.2.0",
-    "grunt-contrib-cssmin": "~0.9.0",
-    "grunt-contrib-htmlmin": "~0.2.0",
+    "grunt-contrib-clean": "~1.0.0",
+    "grunt-contrib-compress": "~1.3.0",
+    "grunt-contrib-connect": "~1.0.0",
+    "grunt-contrib-copy": "~1.0.0",
+    "grunt-contrib-csslint": "~2.0.0",
+    "grunt-contrib-cssmin": "~1.0.0",
+    "grunt-contrib-htmlmin": "~2.0.0",
     "grunt-contrib-imagemin": "~1.0.0",
-    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-jshint": "~1.0.0",
     "grunt-contrib-livereload": "~0.1.0",
-    "grunt-contrib-jasmine": "~0.6.0",
+    "grunt-contrib-jasmine": "~1.0.0",
     "grunt-karma": "~0.4.0",
     "grunt-open": "~0.2.0",
     "grunt-regarde": "~0.1.0",
-    "grunt-usemin": "~0.1.0",
-    "jshint-stylish": "~0.4.0",
-    "matchdep": "~0.3.0"
+    "grunt-usemin": "~3.1.0",
+    "jshint-stylish": "~2.2.0",
+    "matchdep": "~1.0.0"
   }
 }
