@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'KomikaTitle';
-    src: url(fonts/Komika_display_kaps.ttf) format('truetype');
+    src: url('fonts/Komika_display_kaps.ttf') format('truetype');
 }
 
 html, body {
