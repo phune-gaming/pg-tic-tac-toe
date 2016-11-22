@@ -21,7 +21,7 @@ module.exports = function(grunt) {
                     middleware: function(connect, options) {
                         return [
                             serveStatic('limejs/closure/closure/goog'),
-                            serveStatic(options.base[0])
+                            serveStatic(require('path').resolve(options.base[0]))
                         ];
                     }
                 }
