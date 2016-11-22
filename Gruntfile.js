@@ -20,7 +20,7 @@ module.exports = function(grunt) {
                     hostname: 'localhost', // Change this to '0.0.0.0' to access the server from outside.
                     middleware: function(connect, options) {
                         return [
-                            serveStatic('limejs/closure/closure/goog'),
+                            serveStatic(require('path').resolve('limejs/closure/closure/goog')),
                             serveStatic(require('path').resolve(options.base[0]))
                         ];
                     }
