@@ -1,8 +1,5 @@
 'use strict';
-var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
-var mountFolder = function(connect, dir) {
-    return connect.static(require('path').resolve(dir));
-};
+var serveStatic = require('serve-static');
 
 module.exports = function(grunt) {
     // load all grunt tasks
@@ -22,7 +19,10 @@ module.exports = function(grunt) {
                     port: 9000,
                     hostname: 'localhost', // Change this to '0.0.0.0' to access the server from outside.
                     middleware: function(connect, options) {
-                        return [lrSnippet, mountFolder(connect, options.base[0])];
+                        return [
+                            serveStatic('limejs/closure/closure/goog'),
+                            serveStatic(options.base[0])
+                        ];
                     }
                 }
             }
@@ -113,7 +113,7 @@ module.exports = function(grunt) {
                     root_with_prefix: [
                         '"test/spec/ ../../../../test/spec"',
                         '"limejs/lime/ ../../../lime/"',
-                        '"limejs/box2d/ ../../../box2d/"',
+                        '"limejs/box2d/src/ ../../../box2d/src/"',
                         '"limejs/closure/ ../../"'
                     ]
                 },
@@ -125,7 +125,7 @@ module.exports = function(grunt) {
                     root_with_prefix: [
                         '"src/js/ ../../../../src/js"',
                         '"limejs/lime/ ../../../lime/"',
-                        '"limejs/box2d/ ../../../box2d/"',
+                        '"limejs/box2d/src/ ../../../box2d/src/"',
                         '"limejs/closure/ ../../"'
                     ]
                 },
@@ -142,21 +142,21 @@ module.exports = function(grunt) {
                     closureLibraryPath: 'limejs/closure',
                     inputs: 'test/spec/tictactoe-deps.js'
                 },
-                src: ['limejs/closure', 'limejs/box2d', 'limejs/lime', 'test/spec'],
-                dest: '.tmp/js/lime.js'
+                src: ['limejs/closure', 'limejs/box2d/src', 'limejs/lime', 'test/spec'],
+                dest: '.tmp/js/tictactoe-test.js'
             },
             dev: {
-                src: ['limejs/closure', 'limejs/box2d', 'limejs/lime', 'src/js'],
+                src: ['limejs/closure', 'limejs/box2d/src', 'limejs/lime', 'src/js'],
                 dest: 'dist/js/tictactoe.js'
             },
             dist: {
-                src: ['limejs/closure', 'limejs/box2d', 'limejs/lime', 'src/js'],
+                src: ['limejs/closure', 'limejs/box2d/src', 'limejs/lime', 'src/js'],
                 dest: '.tmp/js/tictactoe.js'
             }
         },
         closureCompiler: {
             options: {
-                compilerFile: 'limejs/bin/external/compiler-20130411.jar',
+                compilerFile: 'limejs/bin/external/closure-compiler.jar',
                 compilerOpts: {
                     // compilation_level: 'ADVANCED_OPTIMIZATIONS',
                     // externs: ['../../server/javascript/gamerules.externs.js']

@@ -7,7 +7,7 @@ basePath = '';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
-  '.tmp/js/lime.js',
+  '.tmp/js/tictactoe-test.js',
   'src/js/**/*.js',
   'test/spec/**/*.js'
 ];
@@ -16,7 +16,6 @@ files = [
 exclude = ['**/tictactoe-deps.js'];
 
 // test results reporter to use
-// possible values: 'dots', 'progress', 'junit'
 reporters = ['coverage'];
 
 preprocessors = {

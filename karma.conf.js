@@ -7,7 +7,7 @@ basePath = '';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
-  '.tmp/js/lime.js',
+  '.tmp/js/tictactoe-test.js',
   'src/js/**/*.js',
   'test/spec/**/*.js'
 ];

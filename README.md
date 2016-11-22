@@ -14,16 +14,19 @@ In the root folder of Tic Tac Toe create a directory `limejs`:
 mkdir limejs
 ```
 
-Clone [LimeJS Git repo](https://github.com/digitalfruit/limejs) into the `limejs` directory you just created:
+Clone [LimeJS Git repo](https://github.com/phune-gaming/limejs) into the `limejs` directory you just created:
 
 ```
-git clone https://github.com/digitalfruit/limejs.git limejs
+git clone https://github.com/phune-gaming/limejs.git limejs
 ```
 
 Setup LimeJS dependencies:
 
 ```
-limejs/bin/lime.py init
+cd limejs/bin
+./lime.py init
+cd ..
+cd ..
 ```
 
 ### Install Node.js dependencies
